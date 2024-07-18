@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Project</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+
+</head>
+<body background="C:\Users\Pita\OneDrive\Documents\Mini Project\8-jul-24-yamaroni\Assets/Yellow.png">
+    <!-- Main Title -->
+    <img src="C:\Users\Pita\OneDrive\Documents\Mini Project\8-jul-24-yamaroni\Assets/VSC.png" width="120" height="50">
+    <header class="main-title">
+        <h1>BMI Calculator</h1>
+    </header>
+
+    <main>
+        <!-- Konten Sisi Kiri -->
+       <section class="main-content">
+         <!-- Ini main article -->
+         <article>
+            <P>Silahkan masukkan data yang ditentukan:</P>
+        </article>
+
+        <!-- Untuk menyimpan form -->
+        <section>
+            <form>
+                <div class="input-title">
+                    <div>
+                          <label for="fname">Nama Depan</label>
+                          <input type="text" id="fname" placeholder="Your first name..">
+                      
+                          <label for="lname">Nama Belakang</label>
+                          <input type="text" id="lname" placeholder="Your last name..">
+                      </div>
+                </div>
+                <div>
+                    <div class="input-title">Jenis Kelamin</div>
+                    <label class="container">Laki-laki
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="container">Perempuan
+                        <input type="radio" name="radio">
+                        <span class="checkmark"></span>
+                      </label>
+                </div>
+                <div class="input-title">
+                    <label for="weight">Berat Badan (kg)</label>
+                    <input type="number" id="weight" placeholder="Weight">
+                </div>
+    
+                <div class="input-title">
+                    <label for="height">Tinggi Badan (cm)</label>
+                    <input type="number" id="height" placeholder="Height">
+                </div>
+
+                <div class="input-title">
+                    <label for="age">Usia (tahun)</label>
+                    <input type="number" id="age" placeholder="Your age">
+                </div>
+                    <button type="submit" class="button submit">Submit</button>
+                    <button type="reset" class="button reset">Reset</button>                                      
+            </form>
+        </section>
+
+        <!-- Ini untuk form section-article -->
+        <section>
+            <header>
+                <h2>Kelebihan/Keunggulan Fitur:</h2>
+            </header>
+            <article>
+                <p>1. Penggunaannya yang mudah.</p>
+                <p>2. Dapat diakses dimana saja.</p>
+                <p>3. Praktis.</p>
+                <p>4. Mudah untuk dipahami.</p>
+            </article>
+        </section>
+       </section>
+
+        <!-- Konten Sisi Kanan -->
+        <section class="main-content">
+            <!-- Ini result article -->
+            <article>
+                <header>
+                    <h1>Hasil BMI</h1>
+                </header>
+
+
+        <!-- Ini Result Section -->
+        <section class="output">
+            <header>
+                <h3>Hasil perhitungan BMI anda adalah:</h3>
+            </header>
+             <p id="bmi">0</p>
+             <p id="desc">Data tidak ditemukan</p>
+        </section>
+    </br>
+
+        <section class="bmi-scale">
+            <div>
+                <h1>Keterangan:</h1>
+            </div>
+            <div style="--color: var(--KekuranganBeratBadan)" class="input-title-again">
+                <h4>Kekurangan Berat Badan</h4>
+                <p>&lt; 18.5</p>
+            </div>
+
+            <div style="--color: var(--Normal)" class="input-title-again">
+                <h4>Normal</h4>
+                <p>18.5 - 24.9</p>
+            </div>
+            
+            <div style="--color: var(--KelebihanBeratBadan)" class="input-title-again">
+                <h4>Kelebihan Berat Badan</h4>
+                <p>25 - 29.9</p>
+            </div>
+
+            <div style="--color: var(--Obesitas)" class="input-title-again">
+                <h4>Obesitas</h4>
+                <p>≥30</p>
+            </div>
+        </br>
+        
+        <script>
+            const bmiText = document.getElementById("bmi");
+            const descText = document.getElementById("desc");
+            const form = document.querySelector("form");
+
+            form.addEventListener("submit", onFormSubmit);
+            form.addEventListener("reset", onFormReset);
+
+            function onFormReset() {
+            bmiText.textContent = 0;
+            bmiText.className = "";
+            descText.textContent = "Data tidak ditemukan";
+            }
+
+            function onFormSubmit(e) {
+            e.preventDefault();
+
+            const weight = parseFloat(form.weight.value);
+            const height = parseFloat(form.height.value);
+            const age = parseFloat(form.age.value);
+
+            if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+                alert("Mohon masukkan Berat Badan dan Tinggi Badan");
+                return;
+            }
+
+            if (isNaN(age) || age <= 0) {
+                alert("Mohon masukkan usia anda");
+                return;
+            }
+
+            const heightInMeters = height / 100; // cm -> m
+            const bmi = weight / Math.pow(heightInMeters, 2);
+            const desc = interpretBMI(bmi);
+
+            bmiText.textContent = bmi.toFixed(2);
+            bmiText.className = desc;
+            descText.innerHTML = `<strong>${desc}</strong>`;
+            }
+
+            function interpretBMI(bmi) {
+            if (bmi < 18.5) {
+                return "Kekurangan Berat Badan";
+            } else if (bmi < 25) {
+                return "Normal";
+            } else if (bmi < 30) {
+                return "Kelebihan Berat Badan";
+            } else {
+                return "Obesitas";
+            }
+            
+            }
+        </script>
+        </section>
+
+        <!-- Ini Himbauan -->
+        <article>
+            Selalu mengutamakan kesehatan dan kebersihan, ingat:
+            <p>1. Rutin berolahraga</p>
+            <p>2. Makan makanan yang bergizi</p>
+            <p>3. Jagalah kebersihan diri dan lingkungan</p>
+        </article>
+
+        <!-- General Info -->
+        <br>
+        <section class="main-title-again">
+            THANKS FOR USING OUR WEBSITE!
+        </section>
+
+    </main>
+
+</body>
+
+</html>

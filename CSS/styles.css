@@ -1,0 +1,199 @@
+/* Ini CSS */
+
+body {
+  background-repeat:no-repeat;
+  background-size:cover;
+  backface-visibility: 10;
+}
+
+/* Membuat tulisan judul rata tengah */
+.main-title {
+    text-align: center;
+}
+
+/* Untuk membagi dua row format BMI */
+main {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Menyeimbangkan antara row kiri dan kanan */
+.main-content {
+    flex: 1;
+    padding: 12px;
+}
+
+
+.main-title-again {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+/* Mengatur format form row sebelah kiri */
+form {
+    padding: 12px;
+    border-radius: 12px;
+}
+
+/* Memberi pengaturan untuk Nama, Jenis kelamin, berat badan, usia dan tinggi badan */
+.input-title {
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 12px;
+    padding-top: 12px;
+}
+
+/* Setting untuk tombol Submit dan Reset */
+.button {
+    height: 25px;
+    border-radius: 8px;
+}
+
+.submit {
+    background-color: antiquewhite;
+    border: 2px solid crimson;
+    font-weight: bold;
+}
+
+.reset {
+  background-color: white;
+  border: 2px solid black;
+  font-weight: bold;
+}
+
+/* Format untuk hasil BMI 0 atau tidak ditemukan */
+.output {
+  text-align: center;
+}
+
+.output #bmi {
+  font-size: 4rem;
+}
+
+.output #desc strong{
+  text-transform: uppercase;
+}
+
+/* Format untuk kategori skala BMI */
+.input-title-again {
+  padding-bottom: 12px;
+}
+
+.bmi-scale {
+  display: flex;
+}
+
+.bmi-scale div {
+  flex: 1;
+  text-align: center;
+  text-transform: uppercase;
+  border-top: 5px solid var(--color);
+  padding: 10px;
+}
+
+.bmi-scale h4{
+  font-size: 0.75rem;
+  color: black;
+}
+
+:root{
+  --KekuranganBeratBadan: orange;
+  --Normal: green;
+  --KelebihanBeratBadan: lightcoral;
+  --Obesitas: crimson;
+}
+
+/* Setting untuk style input data Nama, Jenis kelamin, berat badan, usia dan tinggi badan */
+input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+  }
+  
+  input[type=number]:focus {
+    border: 3px solid black;
+  }
+
+  input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+  }
+  
+  input[type=text]:focus {
+    border: 3px solid black;
+  }
+  
+  /* Mengatur style form row sebelah kanan */
+  .result-section{
+    text-align: center;
+    background-color: lightgray;
+    padding: 12px;
+  }
+
+  /* Pemberian style untuk pilihan jenis kelamin */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border-radius: 50%;
+  }
+  
+  .container:hover input ~ .checkmark {
+    background-color: white;
+  }
+  
+  .container input:checked ~ .checkmark {
+    background-color: black;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .container .checkmark:after {
+       top: 9px;
+      left: 9px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+  }
