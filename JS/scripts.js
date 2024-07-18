@@ -26,7 +26,7 @@ const age = parseFloat(form.age.value);
 
 // Membuat proses untuk menentukan nilai hitung BMI beserta kategorinya
 if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
-    alert("Mohon memasukkan Berat Badan dan Tinggi Badan");
+    alert("Mohon masukkan Berat Badan dan Tinggi Badan");
     return;
 }
 
